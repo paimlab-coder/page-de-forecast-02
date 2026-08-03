@@ -33,40 +33,22 @@ header {
     justify-content: center;
 }
 
-/* MARCA / LOGO BERTOLINI EM CSS (100% GARANTIDO SEM ERROS) */
-.brand-box {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+/* CONTAINER DA LOGO COM DESTAQUE VISUAL */
+.logo-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px 28px;
+    border-radius: 12px;
     margin-bottom: 25px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px 22px;
-    border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-}
-
-.brand-symbol {
-    width: 38px;
-    height: 38px;
-    background: #FFFFFF;
-    color: #004A93;
-    font-weight: 900;
-    font-size: 18px;
-    display: flex;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    letter-spacing: -0.5px;
 }
 
-.brand-text {
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #FFFFFF;
+.header-logo {
+    max-width: 220px;
+    height: auto;
+    display: block;
 }
 
 header h1 {
@@ -215,6 +197,9 @@ footer p {
     .title {
         font-size: 26px;
     }
+    .header-logo {
+        max-width: 170px;
+    }
 }
 </style>
 </head>
@@ -222,10 +207,9 @@ footer p {
 <body>
 
 <header>
-    <!-- SÍMBOLO & MARCA BERTOLINI BSA -->
-    <div class="brand-box">
-        <div class="brand-symbol">BSA</div>
-        <span class="brand-text">Bertolini Sistemas de Armazenagem</span>
+    <!-- LOGO OFICIAL BERTOLINI -->
+    <div class="logo-container">
+        <img src="https://www.bertolini.com.br/uploads/knsc8mg2fl1exd28124z.jpg" alt="Bertolini Sistemas de Armazenagem" class="header-logo">
     </div>
     
     <h1>ADR 07</h1>
