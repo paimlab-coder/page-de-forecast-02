@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ADR 07 - Forecast Comercial</title>
 
-<!-- Chart.js para renderizar os gráficos -->
+<!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
@@ -266,7 +265,6 @@ footer p {
 </footer>
 
 <script>
-// Gráfico de Linha - Leads
 const leadsCtx = document.getElementById('leadsChart').getContext('2d');
 new Chart(leadsCtx, {
     type: 'line',
@@ -288,7 +286,6 @@ new Chart(leadsCtx, {
     }
 });
 
-// Gráfico de Barras - Ganhas x Perdidas
 const opCtx = document.getElementById('opChart').getContext('2d');
 new Chart(opCtx, {
     type: 'bar',
