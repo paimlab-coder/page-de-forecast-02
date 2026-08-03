@@ -4,166 +4,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ADR 07 - Forecast Comercial</title>
 
-<!-- IMPORTAÇÃO CORRIGIDA DO CHART.JS -->
+<!-- Chart.js para renderizar os gráficos -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body{
-    background:#f4f6f9;
-    color:#333;
+body {
+    background: #f4f6f9;
+    color: #333;
 }
 
-header{
-    background:#004A93;
-    color:white;
-    padding:60px;
-    text-align:center;
+header {
+    background: #004A93;
+    color: white;
+    padding: 60px;
+    text-align: center;
 }
 
-header h1{
-    font-size:42px;
-    margin-bottom:10px;
+header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
 }
 
-header p{
-    font-size:18px;
-    opacity:.9;
+header p {
+    font-size: 18px;
+    opacity: .9;
 }
 
-.container{
-    width:90%;
-    max-width:1400px;
-    margin:auto;
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
 }
 
-.section{
-    padding:60px 0;
+.section {
+    padding: 60px 0;
 }
 
-.title{
-    font-size:32px;
-    color:#004A93;
-    margin-bottom:30px;
+.title {
+    font-size: 32px;
+    color: #004A93;
+    margin-bottom: 30px;
 }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-.card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-    text-align:center;
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+    text-align: center;
 }
 
-.card h3{
-    font-size:18px;
-    margin-bottom:10px;
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
-.value{
-    font-size:42px;
-    font-weight:bold;
-    color:#004A93;
+.value {
+    font-size: 42px;
+    font-weight: bold;
+    color: #004A93;
 }
 
-.green{
-    color:#1FA95B;
+.green {
+    color: #1FA95B;
 }
 
-.yellow{
-    color:#F7B500;
+.yellow {
+    color: #F7B500;
 }
 
-.red{
-    color:#D62828;
+.red {
+    color: #D62828;
 }
 
-.chart-box{
-    background:white;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-    height:450px;
-    position:relative;
+.chart-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+    height: 450px;
+    position: relative;
 }
 
-.grid-2{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
 }
 
-.recommendations{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:20px;
+.recommendations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
-.rec{
-    padding:20px;
-    border-radius:12px;
-    color:white;
+.rec {
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
 }
 
-.rec.green{
-    background:#17A34A;
+.rec.green {
+    background: #17A34A;
 }
 
-.rec.yellow{
-    background:#DCA600;
+.rec.yellow {
+    background: #DCA600;
 }
 
-.rec.red{
-    background:#D62828;
+.rec.red {
+    background: #D62828;
 }
 
-footer{
-    background:#00376E;
-    color:white;
-    padding:40px;
-    text-align:center;
-    margin-top:60px;
+footer {
+    background: #00376E;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    margin-top: 60px;
 }
 
-footer h3{
-    margin-bottom:15px;
+footer h3 {
+    margin-bottom: 15px;
 }
 
-footer p{
-    margin:5px 0;
+footer p {
+    margin: 5px 0;
 }
 
 @media(max-width:768px){
-
-    .grid-2{
-        grid-template-columns:1fr;
+    .grid-2 {
+        grid-template-columns: 1fr;
     }
-
-    header h1{
-        font-size:30px;
+    header h1 {
+        font-size: 30px;
     }
-
-    .title{
-        font-size:26px;
+    .title {
+        font-size: 26px;
     }
 }
-
 </style>
 </head>
 
@@ -175,215 +169,144 @@ footer p{
 </header>
 
 <section class="section">
-<div class="container">
-
-<h2 class="title">Indicadores Gerais</h2>
-
-<div class="cards">
-
-    <div class="card">
-        <h3>OP's Julho 2025</h3>
-        <div class="value">94</div>
+    <div class="container">
+        <h2 class="title">Indicadores Gerais</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>OP's Julho 2025</h3>
+                <div class="value">94</div>
+            </div>
+            <div class="card">
+                <h3>OP's Julho 2026</h3>
+                <div class="value">307</div>
+            </div>
+            <div class="card">
+                <h3>Crescimento</h3>
+                <div class="value green">226%</div>
+            </div>
+        </div>
     </div>
-
-    <div class="card">
-        <h3>OP's Julho 2026</h3>
-        <div class="value">307</div>
-    </div>
-
-    <div class="card">
-        <h3>Crescimento</h3>
-        <div class="value green">226%</div>
-    </div>
-
-</div>
-
-</div>
 </section>
 
 <section class="section">
-<div class="container">
-
-<h2 class="title">Leads Gerados em 2026</h2>
-
-<div class="chart-box">
-    <canvas id="leadsChart"></canvas>
-</div>
-
-</div>
+    <div class="container">
+        <h2 class="title">Leads Gerados em 2026</h2>
+        <div class="chart-box">
+            <canvas id="leadsChart"></canvas>
+        </div>
+    </div>
 </section>
 
 <section class="section">
-<div class="container">
-
-<h2 class="title">OP's Ganhas x Perdidas</h2>
-
-<div class="grid-2">
-
-    <div class="chart-box">
-        <canvas id="opChart"></canvas>
+    <div class="container">
+        <h2 class="title">OP's Ganhas x Perdidas</h2>
+        <div class="grid-2">
+            <div class="chart-box">
+                <canvas id="opChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h3>Leitura Executiva</h3>
+                <br>
+                <p>O aumento expressivo das oportunidades abertas demonstra o fortalecimento da geração de demanda e ampliação do pipeline comercial.</p>
+                <br>
+                <p>O foco para os próximos ciclos deve estar na velocidade de avanço das oportunidades e na conversão em receita.</p>
+            </div>
+        </div>
     </div>
-
-    <div class="chart-box">
-
-        <h3>Leitura Executiva</h3>
-
-        <br>
-
-        <p>
-            O aumento expressivo das oportunidades abertas demonstra o fortalecimento da geração de demanda e ampliação do pipeline comercial.
-        </p>
-
-        <br>
-
-        <p>
-            O foco para os próximos ciclos deve estar na velocidade de avanço das oportunidades e na conversão em receita.
-        </p>
-
-    </div>
-
-</div>
-
-</div>
 </section>
 
 <section class="section">
-<div class="container">
-
-<h2 class="title">Recomendações Comerciais</h2>
-
-<div class="recommendations">
-
-    <div class="rec green">
-        <h3>🟢 Qualificação</h3>
-        <p>
-            Utilizar BANT em 100% dos leads qualificados.
-        </p>
+    <div class="container">
+        <h2 class="title">Recomendações Comerciais</h2>
+        <div class="recommendations">
+            <div class="rec green">
+                <h3>🟢 Qualificação</h3>
+                <p>Utilizar BANT em 100% dos leads qualificados.</p>
+            </div>
+            <div class="rec yellow">
+                <h3>🟡 Processo</h3>
+                <p>Acompanhar tempo médio de conversão entre etapas.</p>
+            </div>
+            <div class="rec red">
+                <h3>🔴 Atenção</h3>
+                <p>Revisar oportunidades estagnadas há mais de 30 dias.</p>
+            </div>
+        </div>
     </div>
-
-    <div class="rec yellow">
-        <h3>🟡 Processo</h3>
-        <p>
-            Acompanhar tempo médio de conversão entre etapas.
-        </p>
-    </div>
-
-    <div class="rec red">
-        <h3>🔴 Atenção</h3>
-        <p>
-            Revisar oportunidades estagnadas há mais de 30 dias.
-        </p>
-    </div>
-
-</div>
-
-</div>
 </section>
 
 <section class="section">
-
-<div class="container">
-
-<h2 class="title">Frameworks Utilizados</h2>
-
-<div class="grid-2">
-
-    <div class="card">
-
-        <h3>BANT</h3>
-
-        <p><strong>B</strong> - Budget</p>
-        <p><strong>A</strong> - Authority</p>
-        <p><strong>N</strong> - Need</p>
-        <p><strong>T</strong> - Timeline</p>
-
+    <div class="container">
+        <h2 class="title">Frameworks Utilizados</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>BANT</h3>
+                <p><strong>B</strong> - Budget</p>
+                <p><strong>A</strong> - Authority</p>
+                <p><strong>N</strong> - Need</p>
+                <p><strong>T</strong> - Timeline</p>
+            </div>
+            <div class="card">
+                <h3>MEDDIC</h3>
+                <p><strong>M</strong> - Metrics</p>
+                <p><strong>E</strong> - Economic Buyer</p>
+                <p><strong>D</strong> - Decision Criteria</p>
+                <p><strong>D</strong> - Decision Process</p>
+                <p><strong>I</strong> - Identify Pain</p>
+                <p><strong>C</strong> - Champion</p>
+            </div>
+        </div>
     </div>
-
-    <div class="card">
-
-        <h3>MEDDIC</h3>
-
-        <p>M - Metrics</p>
-        <p>E - Economic Buyer</p>
-        <p>D - Decision Criteria</p>
-        <p>D - Decision Process</p>
-        <p>I - Identify Pain</p>
-        <p>C - Champion</p>
-
-    </div>
-
-</div>
-
-</div>
-
 </section>
 
 <footer>
-
     <h3>Bertolini Sistemas de Armazenagem</h3>
-
     <p>📞 +55 54 2102 4991</p>
     <p>✉ armazenagem@bertolini.com.br</p>
-
 </footer>
 
 <script>
-
-const leads = document.getElementById('leadsChart');
-
-new Chart(leads,{
-    type:'line',
-
-    data:{
-        labels:['Jan','Fev','Mar','Abr','Mai','Jun','Jul'],
-
-        datasets:[{
-            label:'Leads',
-            data:[144,222,216,203,204,222,221],
-            borderWidth:3,
-            borderColor:'#004A93',
-            backgroundColor:'rgba(0,74,147,0.15)',
-            fill:true,
-            tension:.3
+// Gráfico de Linha - Leads
+const leadsCtx = document.getElementById('leadsChart').getContext('2d');
+new Chart(leadsCtx, {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul'],
+        datasets: [{
+            label: 'Leads',
+            data: [144, 222, 216, 203, 204, 222, 221],
+            borderWidth: 3,
+            borderColor: '#004A93',
+            backgroundColor: 'rgba(0, 74, 147, 0.15)',
+            fill: true,
+            tension: 0.3
         }]
     },
-
-    options:{
-        responsive:true,
-        maintainAspectRatio:false
+    options: {
+        responsive: true,
+        maintainAspectRatio: false
     }
 });
 
-const op = document.getElementById('opChart');
-
-new Chart(op,{
-    type:'bar',
-
-    data:{
-        labels:['Ganhas','Perdidas'],
-
-        datasets:[{
-            data:[65,35],
-
-            backgroundColor:[
-                '#1FA95B',
-                '#D62828'
-            ]
+// Gráfico de Barras - Ganhas x Perdidas
+const opCtx = document.getElementById('opChart').getContext('2d');
+new Chart(opCtx, {
+    type: 'bar',
+    data: {
+        labels: ['Ganhas', 'Perdidas'],
+        datasets: [{
+            data: [65, 35],
+            backgroundColor: ['#1FA95B', '#D62828']
         }]
     },
-
-    options:{
-        responsive:true,
-        maintainAspectRatio:false,
-
-        plugins:{
-            legend:{
-                display:false
-            }
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false }
         }
     }
 });
-
 </script>
 
 </body>
