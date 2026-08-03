@@ -33,17 +33,40 @@ header {
     justify-content: center;
 }
 
-/* ESTILO DA LOGO DA BERTOLINI NO HEADER */
-.header-logo {
-    max-width: 220px;
-    height: auto;
-    margin-bottom: 20px;
-    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.2));
-    transition: transform 0.3s ease;
+/* MARCA / LOGO BERTOLINI EM CSS (100% GARANTIDO SEM ERROS) */
+.brand-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 22px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
 }
 
-.header-logo:hover {
-    transform: scale(1.03);
+.brand-symbol {
+    width: 38px;
+    height: 38px;
+    background: #FFFFFF;
+    color: #004A93;
+    font-weight: 900;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    letter-spacing: -0.5px;
+}
+
+.brand-text {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #FFFFFF;
 }
 
 header h1 {
@@ -128,14 +151,30 @@ header p {
 
 .recommendations {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
 }
 
 .rec {
-    padding: 20px;
+    padding: 25px;
     border-radius: 12px;
     color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rec h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 8px;
+}
+
+.rec p {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.95;
 }
 
 .rec.green {
@@ -176,9 +215,6 @@ footer p {
     .title {
         font-size: 26px;
     }
-    .header-logo {
-        max-width: 170px;
-    }
 }
 </style>
 </head>
@@ -186,9 +222,11 @@ footer p {
 <body>
 
 <header>
-    <!-- LOGO BERTOLINI / BSA -->
-    <!-- Substitua o atributo src pelo caminho da sua imagem (ex: "logo-bertolini.png") ou link direto -->
-    <img src="https://via.placeholder.com/300x100/004A93/FFFFFF?text=BERTOLINI+BSA" alt="Bertolini Sistemas de Armazenagem" class="header-logo">
+    <!-- SÍMBOLO & MARCA BERTOLINI BSA -->
+    <div class="brand-box">
+        <div class="brand-symbol">BSA</div>
+        <span class="brand-text">Bertolini Sistemas de Armazenagem</span>
+    </div>
     
     <h1>ADR 07</h1>
     <p>Acompanhamento de Resultado Comercial</p>
@@ -245,18 +283,28 @@ footer p {
     <div class="container">
         <h2 class="title">Recomendações Comerciais</h2>
         <div class="recommendations">
+
             <div class="rec green">
                 <h3>🟢 Qualificação</h3>
-                <p>Utilizar BANT em 100% dos leads qualificados.</p>
+                <p><strong>Aplicação Rigorosa do BANT:</strong> É fundamental utilizar a metodologia BANT em 100% dos leads qualificados para mapear Orçamento (Budget), Autoridade (Authority), Necessidade (Need) e Prazo (Timeline) logo no primeiro contato.</p>
+                <p><strong>Aumento do Hit Rate:</strong> Uma filtragem inicial mais precisa evita que a equipe pré-comercial e de vendas despenda tempo em contas sem maturidade financeira ou poder decisório imediato.</p>
+                <p><strong>Alinhamento com Marketing:</strong> Os insights obtidos na qualificação devem retornar periodicamente à equipe de geração de demanda para refinar o perfil de cliente ideal (ICP).</p>
             </div>
+
             <div class="rec yellow">
                 <h3>🟡 Processo</h3>
-                <p>Acompanhar tempo médio de conversão entre etapas.</p>
+                <p><strong>Monitoramento do SLA:</strong> Acompanhar de forma sistemática o tempo médio de transição das oportunidades entre cada etapa do funil comercial, identificando gargalos antes que impactem a meta final.</p>
+                <p><strong>Padronização de Registro:</strong> Garantir que os vendedores mantenham os status, próximos passos e previsões de fechamento devidamente atualizados no CRM em tempo real.</p>
+                <p><strong>Capacitação Contínua:</strong> Promover rotinas de treinamento focadas nas etapas de diagnóstico e negociação para acelerar o avanço das contas pelo pipeline.</p>
             </div>
+
             <div class="rec red">
                 <h3>🔴 Atenção</h3>
-                <p>Revisar oportunidades estagnadas há mais de 30 dias.</p>
+                <p><strong>Saneamento de Pipeline:</strong> Fazer a revisão e auditoria imediata de todas as oportunidades estagnadas há mais de 30 dias sem interação relevante ou avanço de fase.</p>
+                <p><strong>Plano de Retomada ou Descarte:</strong> Para cada conta parada, definir uma ação direta de reconexão; caso não haja evolução no prazo limite, realizar o descarte oficial (Loss) para despoluir a previsão de vendas.</p>
+                <p><strong>Precisão no Forecast:</strong> Limpar negociações inativas garante que as métricas de receita projetada reflitam a real probabilidade de fechamento do período.</p>
             </div>
+
         </div>
     </div>
 </section>
