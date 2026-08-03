@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ADR 07 - Forecast Comercial</title>
 
-<!-- Chart.js -->
+<!-- Chart.js para renderizar os gráficos -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
@@ -24,13 +25,32 @@ body {
 header {
     background: #004A93;
     color: white;
-    padding: 60px;
+    padding: 50px 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ESTILO DA LOGO DA BERTOLINI NO HEADER */
+.header-logo {
+    max-width: 220px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.03);
 }
 
 header h1 {
     font-size: 42px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 header p {
@@ -156,6 +176,9 @@ footer p {
     .title {
         font-size: 26px;
     }
+    .header-logo {
+        max-width: 170px;
+    }
 }
 </style>
 </head>
@@ -163,6 +186,10 @@ footer p {
 <body>
 
 <header>
+    <!-- LOGO BERTOLINI / BSA -->
+    <!-- Substitua o atributo src pelo caminho da sua imagem (ex: "logo-bertolini.png") ou link direto -->
+    <img src="https://via.placeholder.com/300x100/004A93/FFFFFF?text=BERTOLINI+BSA" alt="Bertolini Sistemas de Armazenagem" class="header-logo">
+    
     <h1>ADR 07</h1>
     <p>Acompanhamento de Resultado Comercial</p>
 </header>
